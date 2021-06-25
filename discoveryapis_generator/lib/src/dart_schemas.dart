@@ -842,10 +842,9 @@ class ObjectType extends ComplexDartSchemaType {
         // The super variant fromJson() will call this subclass constructor
         // and the variant descriminator is final.
         if (!isVariantDiscriminator(property)) {
-          final decodeString = property.type!
-              .jsonDecode("_json['${escapeString(property.jsonName)}']");
-          fromJsonString.writeln('    if (_json.containsKey'
-              "('${escapeString(property.jsonName)}')) {");
+          final propertyValue = "_json['${escapeString(property.jsonName)}']";
+          final decodeString = property.type!.jsonDecode(propertyValue);
+          fromJsonString.writeln('    if ($propertyValue != null) {');
           fromJsonString.writeln('      ${property.name} = $decodeString;');
           fromJsonString.writeln('    }');
         }

@@ -1,0 +1,13 @@
+  apiVersion: backstage.io/v1alpha1
+  kind: Component
+  metadata:
+    name: googleapis.dart
+    description: Github repository for googleapis.dart
+    annotations:
+      google.com/cloudbuild-project-slug: ao-docs-tools
+      github.com/project-slug: AODocs-Dev/googleapis.dart
+      sonarqube.org/project-key: AODocs-Dev_googleapis.dart
+  spec:
+    type: service
+    lifecycle: production
+    owner: group:default/sre
